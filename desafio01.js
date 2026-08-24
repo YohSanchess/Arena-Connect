@@ -8,7 +8,6 @@ let proximoId = 1;
 class Pessoa {
     #id;
     #nome;
-
     constructor(id, nome) {
         this.#id = id;
         this.nome = nome;
@@ -26,11 +25,30 @@ class Pessoa {
         return this.#id;
     }
     exibirDados() {
-        console.log(
-            "[" + this.id + "] - " +
-            "Nome: " + this.nome);}
+        console.log("[" + this.id + "] - " +"Nome: " + this.nome);}
 }
+class Equipe {
+    #id;
+    #idTurma;
+    #modalidade;
+    #atletas;
 
+    constructor(id, idTurma, modalidade){
+        this.#id = id;
+        this.#idTurma = idTurma;
+        this.#modalidade =modalidade;
+        this.#atletas = [];
+    }
+
+    set modalidade(novaModalidade){
+        const modalidadeValidas = Object.values(Modalidade);
+        if(!modalidadeValidas.includes(novaModalidade)){
+            console.log("ERRO, modalidade inválida. Acesso negado.")
+            return;
+        }
+        this.#modalidade = novaModalidade;
+    }
+}
 class Arbitro extends Pessoa {
     #numeroCredencial;
     #anosExperiencia;
@@ -52,12 +70,7 @@ class Arbitro extends Pessoa {
         return this.#anosExperiencia;
     }
     exibirDados() {
-        console.log(
-            "[" + this.id + "] - " +
-            "Nome: " + this.nome +
-            " | Credencial: " + this.numeroCredencial +
-            " | Experiência: " + this.anosExperiencia + " anos"
-        );
+        console.log("[" + this.id + "] - " +"Nome: " + this.nome +" | Credencial: " + this.numeroCredencial +" | Experiência: " + this.anosExperiencia + " anos");
     }
 }
 function adicionarArbitro() {
@@ -117,13 +130,7 @@ class Atleta extends Pessoa {
         return this.#idade;
     }
     exibirDados() {
-        console.log(
-            "[" + this.id + "] - " +
-            "Nome: " + this.nome +
-            " | Modalidade: " + this.modalidade +
-            " | Idade: " + this.idade +
-            " | ID da Turma: " + this.idTurma
-        );
+        console.log("[" + this.id + "] - " +"Nome: " + this.nome +" | Modalidade: " + this.modalidade +" | Idade: " + this.idade +" | ID da Turma: " + this.idTurma);
     }
 }
 function adicionarAtleta() {
