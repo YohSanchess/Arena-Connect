@@ -32,12 +32,24 @@ class Pessoa {
 }
 
 class Arbitro extends Pessoa {
+    #numeroCredencial;
+    #anosExperiencia;
     constructor(id, nome, numeroCredencial, anosExperiencia) {
         super(id, nome);
-        this.getnome;
-        this.id;
         this.numeroCredencial = numeroCredencial;
         this.anosExperiencia = anosExperiencia;
+    }
+    set numeroCredencial(novoNumeroCredencial) {
+        this.#numeroCredencial = novoNumeroCredencial;
+    }
+    get numeroCredencial() {
+        return this.#numeroCredencial;
+    }
+    set anosExperiencia(novoAnosExperiencia) {
+        this.#anosExperiencia = novoAnosExperiencia;
+    }
+    get anosExperiencia() {
+        return this.#anosExperiencia;
     }
     exibirDados() {
         console.log(
@@ -77,19 +89,32 @@ function listarArbitros() {
 
 class Atleta extends Pessoa {
     #idTurma;
+    #modalidade;
+    #idade;
     constructor(id, nome, modalidade, idade, idTurma) {
         super(id, nome);
-        this.getnome;
-        this.id;
         this.modalidade = modalidade;
         this.idade = idade;
         this.#idTurma = idTurma;}
     eMaiorDeIdade() {return this.idade >= 18;}
+   
     set idTurma(novoIdTurma) {
         this.#idTurma = novoIdTurma;
     }
     get idTurma() {
         return this.#idTurma;
+    }
+    set modalidade(novoModalidade) {
+        this.#modalidade = novoModalidade;
+    }
+    get modalidade() {
+        return this.#modalidade;
+    }
+    set idade(novoIdade) {
+        this.#idade = novoIdadeIdade;
+    }
+    get idade() {
+        return this.#idade;
     }
     exibirDados() {
         console.log(
