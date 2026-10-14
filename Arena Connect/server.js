@@ -6,11 +6,9 @@ const ClassificacaoController = require('./src/controllers/ClassificacaoControll
 
 function main() {
     const sistema = ArenaConnect.getInstancia();
-    sistema.carregarEstado(); // NOVO: tenta recuperar o estado salvo da última vez
+    sistema.carregarEstado();
 
     while (true) {
-        // CORREÇÃO (05/10): era MenuView.mostraMenu() (typo) — o método
-        // certo é mostrarMenu(). Isso derrubava o sistema assim que abria.
         const op = MenuView.mostrarMenu();
         if (op === '1') sistema.adicionarTurma();
         else if (op === '2') sistema.listarTurmas();

@@ -4,7 +4,7 @@ const MenuView = {
     mostrarMenu() {
         console.log(`
  ==============================
- ARENA-CONNECT v4.0 - PBE1 - Persistencia
+        ARENA-CONNECT 
  ==============================
  1. Registrar Turma
  2. Listar Turmas
